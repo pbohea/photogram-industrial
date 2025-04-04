@@ -11,7 +11,7 @@
 #  likes_count            :integer          default(0)
 #  name                   :string
 #  photos_count           :integer          default(0)
-#  private                :boolean
+#  private                :boolean          default(TRUE)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -47,5 +47,6 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: "fan_id"
   has_many :liked_photos, through: :likes, source: :photo
 
-  
+  validates :username, presence: true, uniqueness: true
+
 end
