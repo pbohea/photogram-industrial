@@ -1,8 +1,19 @@
-<h1>
-  <%= @user.username %>
-</h1>
+<div class="row">
+  <div class="col-md-6 offset-3">
+    <h1>
+      <%= @user.username %>
+    </h1>
 
-<h2> Own Photos </h2>
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Lked Photos", liked_path(@user.username), class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <% @user.own_photos.each do |photo| %>
   <div class="row mb-4">
@@ -18,7 +29,7 @@
             <li class="list-group-item">
               <div class="d-flex">
                 <div class="flex-shrink-0">
-                  <%= image_tag comment.author.avatar_image_url, class: "rounded-circle me-2", width: "36px" %>                
+                  <%= image_tag comment.author.avatar_image_url, class: "rounded-circle me-2", width: "36px" %>
                 </div>
                 <div class="flex-grow-1 ms-3">
                   <h5 class="mt-0"><%= comment.author.username %></h5>
