@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by!(username: params.fetch(:username))
-    render "users/shared/show"
+    render "users/show"
   end
 
   def liked
