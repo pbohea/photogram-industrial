@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by!(username: params.fetch(:username))
+    render "users/shared/show"
   end
 
   def liked
@@ -14,6 +15,12 @@ class UsersController < ApplicationController
   def discover
     @user = User.find_by!(username: params.fetch(:username))
   end
+
+  def pending
+    @user = User.find_by!(username: params.fetch(:username))
+    @user.follow_requests = pending
+  end
+
 
 
 end

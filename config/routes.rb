@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :follow_requests
   resources :comments
   resources :photos
+  resources :users, only: [ :index ]
 
   get ":username" => "users#show", as: :user
   get ":username/liked" => "users#liked", as: :liked
